@@ -167,3 +167,7 @@
 <?PHP exit;?>	1382168014	admin	1	127.0.0.1	specialuser	GET={operation=defaultuser; }; POST={};
 <?PHP exit;?>	1382168014	admin	1	127.0.0.1	verify	GET={operation=verify; }; POST={};
 <?PHP exit;?>	1382168015	admin	1	127.0.0.1	verify	GET={}; POST={};
+<?PHP exit;?>	1382242132	admin	1	127.0.0.1		GET={}; POST={};
+<?PHP exit;?>	1382242133	admin	1	127.0.0.1		GET={frames=yes; }; POST={frames=yes; };
+<?PHP exit;?>	1382242134	admin	1	127.0.0.1	index	GET={}; POST={};
+<?PHP exit;?>	1382242145	admin	1	127.0.0.1	setting	GET={operation=basic; }; POST={};
