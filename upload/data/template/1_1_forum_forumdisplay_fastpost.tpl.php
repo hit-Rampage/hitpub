@@ -1,8 +1,9 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); 
 0
-|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/seditor.htm', 1384658020, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
-|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/seccheck.htm', 1384658020, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
-|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/upload.htm', 1384658020, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
+|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/seditor.htm', 1387557427, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
+|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/forum/seccheck_post.htm', 1387557427, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
+|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/upload.htm', 1387557427, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
+|| checktplrefresh('./template/default/forum/forumdisplay_fastpost.htm', './template/default/common/seccheck.htm', 1387557427, '1', './data/template/1_1_forum_forumdisplay_fastpost.tpl.php', './template/default', 'forum/forumdisplay_fastpost')
 ;?>
 <script type="text/javascript">
 var postminchars = parseInt('<?php echo $_G['setting']['minpostsize'];?>');
@@ -85,77 +86,33 @@ var fid = parseInt('<?php echo $_G['fid'];?>');
 </div>
 </div>
 </div>
-<?php if($fastpost && checkperm('seccode') && ($secqaacheck || $seccodecheck)) { ?><?php
+<div id="seccheck_fastpost">
+<?php if($fastpost && ($secqaacheck || $seccodecheck)) { ?><?php
 $sectpl = <<<EOF
-<sec> <span id="sec<hash>" onclick="showMenu(this.id)"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div>
+<sec> <span id="sec<hash>" onclick="showMenu(
+EOF;
+ if(!empty($_G['gp_infloat'])) { 
+$sectpl .= <<<EOF
+{'ctrlid':this.id,'win':'{$_GET['handlekey']}'}
+EOF;
+ } else { 
+$sectpl .= <<<EOF
+this.id
+EOF;
+ } 
+$sectpl .= <<<EOF
+)"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div>
 EOF;
 ?>
-<div class="mtm sec"><?php $_G['sechashi'] = !empty($_G['cookie']['sechashi']) ? $_G['sechash'] + 1 : 0;
-$sechash = 'S'.($_G['inajax'] ? 'A' : '').$_G['sid'].$_G['sechashi'];
-$sectpl = !empty($sectpl) ? explode("<sec>", $sectpl) : array('<br />',': ','<br />','');
-$sectpldefault = $sectpl;
-$sectplqaa = str_replace('<hash>', 'qaa'.$sechash, $sectpldefault);
-$sectplcode = str_replace('<hash>', 'code'.$sechash, $sectpldefault);
-$secshow = !isset($secshow) ? 1 : $secshow;
-$sectabindex = !isset($sectabindex) ? 1 : $sectabindex;?><?php
-$__STATICURL = STATICURL;$seccheckhtml = <<<EOF
-
-<input name="sechash" type="hidden" value="{$sechash}" />
-
-EOF;
- if($sectpl) { if($secqaacheck) { 
-$seccheckhtml .= <<<EOF
-
-{$sectplqaa['0']}验证问答{$sectplqaa['1']}<input name="secanswer" id="secqaaverify_{$sechash}" type="text" autocomplete="off" style="width:100px" class="txt px vm" onblur="checksec('qaa', '{$sechash}')" tabindex="{$sectabindex}" />
-<a href="javascript:;" onclick="updatesecqaa('{$sechash}');doane(event);" class="xi2">换一个</a>
-<span id="checksecqaaverify_{$sechash}"><img src="{$__STATICURL}image/common/none.gif" width="16" height="16" class="vm" /></span>
-{$sectplqaa['2']}<span id="secqaa_{$sechash}"></span>
-
-EOF;
- if($secshow) { 
-$seccheckhtml .= <<<EOF
-<script type="text/javascript" reload="1">updatesecqaa('{$sechash}');</script>
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-
-{$sectplqaa['3']}
-
-EOF;
- } if($seccodecheck) { 
-$seccheckhtml .= <<<EOF
-
-{$sectplcode['0']}验证码{$sectplcode['1']}<input name="seccodeverify" id="seccodeverify_{$sechash}" type="text" autocomplete="off" style="
-EOF;
- if($_G['setting']['seccodedata']['type'] != 1) { 
-$seccheckhtml .= <<<EOF
-ime-mode:disabled;
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-width:100px" class="txt px vm" onblur="checksec('code', '{$sechash}')" tabindex="{$sectabindex}" />
-<a href="javascript:;" onclick="updateseccode('{$sechash}');doane(event);" class="xi2">换一个</a>
-<span id="checkseccodeverify_{$sechash}"><img src="{$__STATICURL}image/common/none.gif" width="16" height="16" class="vm" /></span>
-{$sectplcode['2']}<span id="seccode_{$sechash}"></span>
-
-EOF;
- if($secshow) { 
-$seccheckhtml .= <<<EOF
-<script type="text/javascript" reload="1">updateseccode('{$sechash}');</script>
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-
-{$sectplcode['3']}
-
-EOF;
- } } 
-$seccheckhtml .= <<<EOF
-
-
-EOF;
-?><?php unset($secshow);?><?php if(empty($secreturn)) { ?><?php echo $seccheckhtml;?><?php } ?></div>
-<?php } ?>
+<div class="mtm"><?php $sechash = !isset($sechash) ? 'S'.($_G['inajax'] ? 'A' : '').$_G['sid'] : $sechash.random(3);
+$sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
+<span id="secqaa_q<?php echo $sechash;?>"></span>		
+<script type="text/javascript" reload="1">updatesecqaa('q<?php echo $sechash;?>', '<?php echo $sectpl;?>', '<?php echo $_G['basescript'];?>::<?php echo CURMODULE;?>');</script>
+<?php } if($seccodecheck) { ?>
+<span id="seccode_c<?php echo $sechash;?>"></span>		
+<script type="text/javascript" reload="1">updateseccode('c<?php echo $sechash;?>', '<?php echo $sectpl;?>', '<?php echo $_G['basescript'];?>::<?php echo CURMODULE;?>');</script>
+<?php } ?></div><?php } ?>
+</div>
 
 <input type="hidden" name="formhash" value="<?php echo FORMHASH;?>" />
 <input type="hidden" name="usesig" value="<?php echo $usesigcheck;?>" />
@@ -232,7 +189,7 @@ debug: false
 
 <p class="ptm pnpost">
 <a href="home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=<?php echo $_G['fid'];?>" class="y" target="_blank">本版积分规则</a>
-<button <?php if($fastpost) { ?>type="submit" <?php } elseif(!$_G['uid']) { ?>type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" <?php } ?>name="topicsubmit" id="fastpostsubmit" value="topicsubmit" tabindex="13" class="pn pnc"><strong>发表帖子</strong></button>
+<button <?php if($fastpost) { ?>type="submit" <?php } elseif(!$_G['uid']) { ?>type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" <?php } if(!$seccodecheck) { ?>onmouseover="checkpostrule('seccheck_fastpost', 'ac=newthread');this.onmouseover=null" <?php } ?>name="topicsubmit" id="fastpostsubmit" value="topicsubmit" tabindex="13" class="pn pnc"><strong>发表帖子</strong></button>
 <?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_btn_extra'])) echo $_G['setting']['pluginhooks']['forumdisplay_fastpost_btn_extra'];?>
 <?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_sync_method'])) { ?>
 <span>

@@ -1,0 +1,44 @@
+{subtemplate common/header}
+<link href="./source/plugin/kylefu_qrcode_login/img/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{QRCODE_API_URL}static/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#qrcode").hover(function(){
+         $(this).next().fadeIn(500);
+	},function(){
+         $(this).next().fadeOut(500);
+	});
+	ajaxhandle = setInterval("kylefu_qrcode_login()",1000);
+})
+var ajaxlock = false;
+var ajaxhandle;
+function kylefu_qrcode_login(){
+	if (!ajaxlock) {
+		ajaxlock = true;
+		$.post(location.href,{code:'{$logincode}'},function(json){
+			if (json.status) {
+				if (json.status==201) {
+					$(".scan").show();
+				}else if (json.status==200) {
+					if (json.info && json.info.User){
+						window.location.href=location.href+':do&data[fakeid]='+json.info.User.Uin+'&data[nickname]='+json.info.User.NickName+'&data[username]='+json.info.User.UserName+'&data[gender]='+json.info.User.Sex;
+					}
+					clearInterval(ajaxhandle);
+				}
+			}
+			ajaxlock = false;
+		},'json');
+	}
+}
+</script>
+<div id="wp" class="wp">
+	<div class="qrcode-main">
+    	<h1></h1>
+    	<img src="{$qrimg}" id="qrcode" />
+        <img src="./source/plugin/kylefu_qrcode_login/img/login_guide17ced3.png" class="guide"  />
+        <div class="scan">
+        {$_lang[scan]}
+        </div>
+    </div>
+</div>
+{subtemplate common/footer}

@@ -1,0 +1,43 @@
+{subtemplate common/header}
+<link href="./source/plugin/kylefu_qrcode_login/img/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{QRCODE_API_URL}static/js/jquery-1.7.2.min.js"></script>
+<div class="ptm wp cl">
+	<div class="bm">
+    <div class="bm_h bbs" id="main_hnav">
+    <span class="y">
+    <a href="member.php?mod={$_G[setting][regname]}" class="xi2">$_G['setting']['reglinkname']</a>
+    </span>
+    <h3 id="layer_reginfo_t" class="xs2">{$_lang[bind]}</h3>
+    </div>
+	<form method="post" autocomplete="off" name="bind" action="">
+    <div class="mtw">
+        <div class="rfm">
+            <table>
+              <tr>
+                  <th><span class="rq">*</span><label>{lang username}:</label></th>
+                  <td><input type="text" class="px" tabindex="1" size="20" maxlength="15" name="username" value="{$_G[member][username]}" required></td>
+              </tr>
+            </table>
+        <input type="hidden" name="formhash" value="{FORMHASH}" />
+        </div>
+        <div class="rfm">
+            <table>
+              <tr>
+                  <th><span class="rq">*</span><label>{lang login_password}:</label></th>
+                  <td><input type="password" class="px" tabindex="1" size="20" maxlength="15" name="password" required></td>
+              </tr>
+            </table>
+        </div>
+        <div class="rfm mbw bw0">
+            <table>
+              <tr>
+                <th>&nbsp;</th>
+                <td><button class="pn pnc"  type="submit" name="submit" value="true" tabindex="1"><strong>{lang submit}</strong></button></td>
+              </tr>
+            </table>
+        </div>
+    </div>
+    </form>
+    </div>
+</div>
+{subtemplate common/footer}

@@ -1,8 +1,8 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); 
 0
-|| checktplrefresh('./template/default/common/header.htm', './template/default/common/header_common.htm', 1384658165, '1', './data/template/1_1_common_header_forum_post.tpl.php', './template/default', 'common/header_forum_post')
-|| checktplrefresh('./template/default/common/header.htm', './template/default/common/header_qmenu.htm', 1384658165, '1', './data/template/1_1_common_header_forum_post.tpl.php', './template/default', 'common/header_forum_post')
-|| checktplrefresh('./template/default/common/header.htm', './template/default/common/pubsearchform.htm', 1384658165, '1', './data/template/1_1_common_header_forum_post.tpl.php', './template/default', 'common/header_forum_post')
+|| checktplrefresh('./template/default/common/header.htm', './template/default/common/header_common.htm', 1387557988, '1', './data/template/1_1_common_header_forum_post.tpl.php', './template/default', 'common/header_forum_post')
+|| checktplrefresh('./template/default/common/header.htm', './template/default/common/header_qmenu.htm', 1387557988, '1', './data/template/1_1_common_header_forum_post.tpl.php', './template/default', 'common/header_forum_post')
+|| checktplrefresh('./template/default/common/header.htm', './template/default/common/pubsearchform.htm', 1387557988, '1', './data/template/1_1_common_header_forum_post.tpl.php', './template/default', 'common/header_forum_post')
 ;?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -79,11 +79,9 @@
 </div>
 
 <?php if(!IS_ROBOT) { if($_G['uid']) { ?>
-<ul id="myprompt_menu" class="p_pop" style="display: none;">
+<ul id="myprompt_menu" class="p_pop" style="display: none;">				
 <li><a href="home.php?mod=space&amp;do=pm" id="pm_ntc" style="background-repeat: no-repeat; background-position: 0 50%;"><em class="prompt_news<?php if(empty($_G['member']['newpm'])) { ?>_0<?php } ?>"></em>消息</a></li>
-
 <li><a href="home.php?mod=follow&amp;do=follower"><em class="prompt_follower<?php if(empty($_G['member']['newprompt_num']['follower'])) { ?>_0<?php } ?>"></em>新听众<?php if($_G['member']['newprompt_num']['follower']) { ?>(<?php echo $_G['member']['newprompt_num']['follower'];?>)<?php } ?></a></li>
-
 <?php if($_G['member']['newprompt'] && $_G['member']['newprompt_num']['follow']) { ?>
 <li><a href="home.php?mod=follow"><em class="prompt_concern"></em>我关注的(<?php echo $_G['member']['newprompt_num']['follow'];?>)</a></li>
 <?php } if($_G['member']['newprompt']) { if(is_array($_G['member']['category_num'])) foreach($_G['member']['category_num'] as $key => $val) { ?><li><a href="home.php?mod=space&amp;do=notice&amp;view=<?php echo $key;?>"><em class="notice_<?php echo $key;?>"></em><?php echo lang('template', 'notice_'.$key); ?>(<span class="rq"><?php echo $val;?></span>)</a></li>
@@ -96,6 +94,13 @@
 <?php if(!$_G['style']['defaultextstyle']) { ?><span class="sslct_btn" onclick="extstyle('')" title="默认"><i></i></span><?php } if(is_array($_G['style']['extstyle'])) foreach($_G['style']['extstyle'] as $extstyle) { ?><span class="sslct_btn" onclick="extstyle('<?php echo $extstyle['0'];?>')" title="<?php echo $extstyle['1'];?>"><i style='background:<?php echo $extstyle['2'];?>'></i></span>
 <?php } ?>
 </div>
+<?php } if($_G['uid']) { ?>
+<ul id="myitem_menu" class="p_pop" style="display: none;">
+<li><a href="forum.php?mod=guide&amp;view=my">帖子</a></li>
+<li><a href="home.php?mod=space&amp;do=favorite&amp;view=me">收藏</a></li>
+<li><a href="home.php?mod=space&amp;do=friend">好友</a></li>
+<?php if(!empty($_G['setting']['pluginhooks']['global_myitem_extra'])) echo $_G['setting']['pluginhooks']['global_myitem_extra'];?>
+</ul>
 <?php } ?><div id="qmenu_menu" class="p_pop <?php if(!$_G['uid']) { ?>blk<?php } ?>" style="display: none;">
 <?php if(!empty($_G['setting']['pluginhooks']['global_qmenu_top'])) echo $_G['setting']['pluginhooks']['global_qmenu_top'];?>
 <?php if($_G['uid']) { ?>

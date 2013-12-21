@@ -126,19 +126,16 @@ return $return;
 
 function profile_node_upgrade_menu($post) {
 global $_G;
-static $run = 0;
-if($run) return;
 ?><?php
 $return = <<<EOF
 <div id="g_up{$post['pid']}_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">{$post['authortitle']}, 积分 {$post['credits']}, 距离下一级还需 {$post['upgradecredit']} 积分</div></div>
 EOF;
 ?><?php 
-$run = 1;
 return $return;
 }
 
 function profile_node_baseinfo($post, $s, $e, $extra) {
 $str = viewthread_baseinfo($post, $extra);
-return $str ? $s.$str.$e : '';
+return $str !== '' ? $s.$str.$e : '';
 }
 ?>

@@ -1,11 +1,12 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('viewthread');
 0
-|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/forum/viewthread_node.htm', 1384658165, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
-|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/forum/viewthread_fastpost.htm', 1384658165, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
-|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/forum/viewthread_node_body.htm', 1384658165, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
-|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/common/seditor.htm', 1384658165, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
-|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/common/seccheck.htm', 1384658165, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
-|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/common/upload.htm', 1384658165, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
+|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/forum/viewthread_node.htm', 1387557410, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
+|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/forum/viewthread_fastpost.htm', 1387557410, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
+|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/forum/viewthread_node_body.htm', 1387557410, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
+|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/common/seditor.htm', 1387557410, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
+|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/forum/seccheck_post.htm', 1387557410, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
+|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/common/upload.htm', 1387557410, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
+|| checktplrefresh('./template/default/forum/viewthread.htm', './template/default/common/seccheck.htm', 1387557410, 'diy', './data/template/1_diy_forum_viewthread.tpl.php', './template/default', 'forum/viewthread')
 ;?><?php include template('common/header'); ?><script type="text/javascript">var fid = parseInt('<?php echo $_G['fid'];?>'), tid = parseInt('<?php echo $_G['tid'];?>');</script>
 <?php if($modmenu['thread'] || $modmenu['post']) { ?>
 <script src="<?php echo $_G['setting']['jspath'];?>forum_moderate.js?<?php echo VERHASH;?>" type="text/javascript"></script>
@@ -139,7 +140,10 @@
 <?php } elseif($_G['forum_thread']['displayorder'] == -4) { ?>(草稿)
 <?php if($post['first'] && $post['invisible'] == -3) { ?>
 <a class="psave" href="forum.php?mod=misc&amp;action=pubsave&amp;tid=<?php echo $_G['tid'];?>">发表</a>
-<?php } } if($_G['forum_thread']['recommendlevel']) { ?>
+<?php } } if($_G['setting']['threadhidethreshold'] && $_G['forum_thread']['hidden'] >= $_G['setting']['threadhidethreshold']) { ?>						
+<?php if($_G['forum_thread']['authorid'] == $_G['uid']) { ?><a class="psave" id="hiderecover" title="点击恢复主题隐藏状态" href="forum.php?mod=misc&amp;action=hiderecover&amp;tid=<?php echo $_G['tid'];?>&amp;formhash=<?php echo FORMHASH;?>" onclick="showWindow(this.id, this.href, 'get', 0);">隐藏</a><?php } else { ?>(隐藏)<?php } ?>
+&nbsp;
+<?php } if($_G['forum_thread']['recommendlevel']) { ?>
 &nbsp;<img src="<?php echo IMGDIR;?>/recommend_<?php echo $_G['forum_thread']['recommendlevel'];?>.gif" alt="" title="评价指数 <?php echo $_G['forum_thread']['recommends'];?>" />
 <?php } if($_G['forum_thread']['heatlevel']) { ?>
 &nbsp;<img src="<?php echo IMGDIR;?>/hot_<?php echo $_G['forum_thread']['heatlevel'];?>.gif" alt="" title="热度: <?php echo $_G['forum_thread']['heats'];?>" />
@@ -345,7 +349,7 @@ EOF;
 <?php } } else { ?>
 <div class="pi">
 <?php if(!$post['authorid']) { ?>
-<a href="javascript:;"><?php echo $_G['setting']['anonymoustext'];?> <em><?php echo $post['useip'];?></em></a>
+<a href="javascript:;"><?php echo $_G['setting']['anonymoustext'];?> <em><?php echo $post['useip'];?><?php if($post['port']) { ?>:<?php echo $post['port'];?><?php } ?></em></a>
 <?php } elseif($post['authorid'] && $post['username'] && $post['anonymous']) { if($_G['forum']['ismoderator']) { ?><a href="home.php?mod=space&amp;uid=<?php echo $post['authorid'];?>" target="_blank"><?php echo $_G['setting']['anonymoustext'];?></a><?php } else { ?><?php echo $_G['setting']['anonymoustext'];?><?php } } else { ?>
 <?php echo $post['author'];?> <em>该用户已被删除</em>
 <?php } ?>
@@ -452,8 +456,8 @@ EOF;
 <?php if(!empty($_G['setting']['pluginhooks']['viewthread_postheader'][$postcount])) echo $_G['setting']['pluginhooks']['viewthread_postheader'][$postcount];?>
 </div>
 </div>
-</div><?php $ad_a_pr=adshow("thread/a_pr/3/$postcount");?><div class="pct"><?php echo adshow("thread/a_pt/2/$postcount");?><?php if(!$_G['inajax']) { if(empty($ad_a_pr_css)) { ?>
-<style type="text/css">.pcb{margin-right:0}</style><?php $ad_a_pr_css=1;?><?php } } if(!$post['first'] && $post['replycredit'] > 0) { ?>
+</div><?php $ad_a_pr=adshow("thread/a_pr/3/$postcount");?><div class="pct"><?php echo adshow("thread/a_pt/2/$postcount");?><?php if(empty($ad_a_pr_css)) { ?>
+<style type="text/css">.pcb{margin-right:0}</style><?php $ad_a_pr_css=1;?><?php } if(!$post['first'] && $post['replycredit'] > 0) { ?>
 <div class="cm">
 <h3 class="psth xs1"><span class="icon_ring vm"></span>
 回帖奖励 <span class="xw1 xs2 xi1">+<?php echo $post['replycredit'];?></span> <?php echo $_G['setting']['extcredits'][$_G['forum_thread']['replycredit_rule']['extcreditstype']]['unit'];?><?php echo $_G['setting']['extcredits'][$_G['forum_thread']['replycredit_rule']['extcreditstype']]['title'];?>
@@ -563,51 +567,23 @@ EOF;
 <?php } else { echo showattach($post, 1); } if($post['attachlist']) { echo showattach($post); } ?>
 </div>
 <?php } if($_G['setting']['allowfastreply'] && $post['first'] && $fastpost && $allowpostreply && !$_G['forum_thread']['archiveid'] && $_GET['from'] != 'preview') { ?>
-<div id="vfastpost" class="fullvfastpost">
 <form method="post" autocomplete="off" id="vfastpostform" action="forum.php?mod=post&amp;action=reply&amp;fid=<?php echo $_G['fid'];?>&amp;tid=<?php echo $_G['tid'];?>&amp;fromvf=1&amp;extra=<?php echo $_G['gp_extra'];?>&amp;replysubmit=yes<?php if($_G['gp_ordertype'] != 1) { ?>&amp;infloat=yes&amp;handlekey=vfastpost<?php } if($_G['gp_from']) { ?>&amp;from=<?php echo $_G['gp_from'];?><?php } ?>" onsubmit="this.message.value = parseurl(this.message.value);ajaxpost('vfastpostform', 'return_reply', 'return_reply', 'onerror');return false;">
+<div id="vfastpost" class="fullvfastpost">				
 <input type="hidden" name="formhash" value="<?php echo FORMHASH;?>" />
 <table cellspacing="0" cellpadding="0" id="vfastposttb">
 <tr>
 <td id="vf_l"></td>
-<td id="vf_m">
-<input type="text" name="message" id="vmessage" onKeyDown="seditor_ctlent(event, '$(\'vfastpostform\').submit()');"/>
-</td>
-<td id="vf_r"></td>
+<td id="vf_m"><input type="text" name="message" id="vmessage" onKeyDown="seditor_ctlent(event, '$(\'vfastpostform\').submit()');"/></td>
+<td id="vf_r"></td>						
 <td id="vf_b">
-<button type="submit" class="pn pnc" name="replysubmit" id="vreplysubmit" value="true" style="">post_newreply</button>
-</td>
+<button type="submit" class="pn pnc" name="replysubmit" id="vreplysubmit" value="true" style="">post_newreply</button>								
+</td>						
 </tr>
-</table>
-</form>
+</table>				
 </div>
-<script type="text/javascript">
-//$('note_<?php echo $tid;?>').focus();
-function succeedhandle_vfastpost(url, message, param) {
-$('vmessage').value = '';
-succeedhandle_fastpost(url, message, param);
-showCreditPrompt();
-}
-var vf_tips = '#在这里快速回复#';
-$('vmessage').value = vf_tips;
-$('vmessage').style.color = '#CDCDCD';
-$('vmessage').onclick = function() {
-if($('vmessage').value==vf_tips) {
-$('vmessage').value='';
-$('vmessage').style.color="#000";
-}
-}
-$('vmessage').onblur = function() {
-if(!$('vmessage').value) {
-$('vmessage').value=vf_tips;
-$('vmessage').style.color="#CDCDCD";
-}
-}
-$('vreplysubmit').onclick = function() {
-if($('vmessage').value == vf_tips) {
-return false;
-}
-}
-</script>
+<div id="vfastpostseccheck"></div>				
+</form>
+<script type="text/javascript">vmessage();</script>
 <?php } ?>
 
 </div>
@@ -630,7 +606,7 @@ return false;
 <a href="forum.php?mod=post&amp;action=reply&amp;fid=<?php echo $_G['fid'];?>&amp;tid=<?php echo $_G['tid'];?>&amp;repquote=<?php echo $comment['rpid'];?>&amp;extra=<?php echo $_GET['extra'];?>&amp;page=<?php echo $page;?><?php if($_GET['from']) { ?>&amp;from=<?php echo $_GET['from'];?><?php } ?>" class="xi2" onclick="showWindow('reply', this.href)">回复</a>
 <?php } ?>
 <span class="xg1">
-发表于 <?php echo dgmdate($comment[dateline], 'u');?><?php if($comment['useip'] && $_G['group']['allowviewip']) { ?>&nbsp;IP:<?php echo $comment['useip'];?><?php } if($_G['forum']['ismoderator'] && $_G['group']['allowdelpost']) { ?>&nbsp;<a href="javascript:;" onclick="modaction('delcomment', <?php echo $comment['id'];?>)">删除</a><?php } ?>
+发表于 <?php echo dgmdate($comment[dateline], 'u');?><?php if($comment['useip'] && $_G['group']['allowviewip']) { ?>&nbsp;IP:<?php echo $comment['useip'];?><?php if($comment['port']) { ?>:<?php echo $comment['port'];?><?php } } if($_G['forum']['ismoderator'] && $_G['group']['allowdelpost']) { ?>&nbsp;<a href="javascript:;" onclick="modaction('delcomment', <?php echo $comment['id'];?>)">删除</a><?php } ?>
 </span>
 </div>
 </div>
@@ -743,7 +719,7 @@ return false;
 </div>
 <?php } ?>
 
-<a href="home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=<?php echo $_G['tid'];?>" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖"><i><img src="<?php echo IMGDIR;?>/fav.gif" alt="收藏" />收藏<span id="favoritenumber"<?php if(!$_G['forum_thread']['favtimes']) { ?> style="display:none"<?php } ?>><?php echo $_G['forum_thread']['favtimes'];?></span></i></a>
+<a href="home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=<?php echo $_G['tid'];?>&amp;formhash=<?php echo FORMHASH;?>" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖"><i><img src="<?php echo IMGDIR;?>/fav.gif" alt="收藏" />收藏<span id="favoritenumber"<?php if(!$_G['forum_thread']['favtimes']) { ?> style="display:none"<?php } ?>><?php echo $_G['forum_thread']['favtimes'];?></span></i></a>
 <?php if($_G['group']['raterange'] && $post['authorid']) { ?>
 <a href="javascript:;" id="ak_rate" onclick="showWindow('rate', 'forum.php?mod=misc&action=rate&tid=<?php echo $_G['tid'];?>&pid=<?php echo $post['pid'];?>', 'get', -1);return false;" title="评分表立场"><i><img src="<?php echo IMGDIR;?>/agree.gif" alt="评分" />评分</i></a>
 <?php } if(!$post['anonymous'] && $post['first'] && helper_access::check_module('follow')) { ?>
@@ -920,7 +896,7 @@ attachimglstshow(<?php echo $post['pid'];?>, <?php echo intval($_G['setting']['l
 </div><?php $postcount++;?><?php } ?>
 <div id="postlistreply" class="pl"><div id="post_new" class="viewthread_table" style="display: none"></div></div>
 <?php if($_G['blockedpids']) { ?>
-<div id='hiddenpoststip'><a href='javascript:display_blocked_post();'>还有一些的帖子被系统自动隐藏，点此展开</a></div>
+<div id='hiddenpoststip'><a href='javascript:display_blocked_post();'>还有一些帖子被系统自动隐藏，点此展开</a></div>
 <div id="hiddenposts"></div>
 <?php } ?>
 </div>
@@ -1045,77 +1021,35 @@ var disablepostctrl = parseInt('<?php echo $_G['group']['disablepostctrl'];?>');
 </div>
 </div>
 </div>
-<?php if($allowpostreply && checkperm('seccode') && ($secqaacheck || $seccodecheck)) { ?><?php
+<div id="seccheck_fastpost">
+<?php if($allowpostreply && ($secqaacheck || $seccodecheck)) { ?><?php
 $sectpl = <<<EOF
-<sec> <span id="sec<hash>" onclick="showMenu(this.id)"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div>
+<sec> <span id="sec<hash>" onclick="showMenu(
+EOF;
+ if(!empty($_G['gp_infloat'])) { 
+$sectpl .= <<<EOF
+{'ctrlid':this.id,'win':'{$_GET['handlekey']}'}
+EOF;
+ } else { 
+$sectpl .= <<<EOF
+this.id
+EOF;
+ } 
+$sectpl .= <<<EOF
+)"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div>
 EOF;
 ?>
-<div class="mtm sec"><?php $_G['sechashi'] = !empty($_G['cookie']['sechashi']) ? $_G['sechash'] + 1 : 0;
-$sechash = 'S'.($_G['inajax'] ? 'A' : '').$_G['sid'].$_G['sechashi'];
-$sectpl = !empty($sectpl) ? explode("<sec>", $sectpl) : array('<br />',': ','<br />','');
-$sectpldefault = $sectpl;
-$sectplqaa = str_replace('<hash>', 'qaa'.$sechash, $sectpldefault);
-$sectplcode = str_replace('<hash>', 'code'.$sechash, $sectpldefault);
-$secshow = !isset($secshow) ? 1 : $secshow;
-$sectabindex = !isset($sectabindex) ? 1 : $sectabindex;?><?php
-$__STATICURL = STATICURL;$seccheckhtml = <<<EOF
+<div class="mtm"><?php $sechash = !isset($sechash) ? 'S'.($_G['inajax'] ? 'A' : '').$_G['sid'] : $sechash.random(3);
+$sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
+<span id="secqaa_q<?php echo $sechash;?>"></span>		
+<script type="text/javascript" reload="1">updatesecqaa('q<?php echo $sechash;?>', '<?php echo $sectpl;?>', '<?php echo $_G['basescript'];?>::<?php echo CURMODULE;?>');</script>
+<?php } if($seccodecheck) { ?>
+<span id="seccode_c<?php echo $sechash;?>"></span>		
+<script type="text/javascript" reload="1">updateseccode('c<?php echo $sechash;?>', '<?php echo $sectpl;?>', '<?php echo $_G['basescript'];?>::<?php echo CURMODULE;?>');</script>
+<?php } ?></div><?php } ?>
+</div>
 
-<input name="sechash" type="hidden" value="{$sechash}" />
-
-EOF;
- if($sectpl) { if($secqaacheck) { 
-$seccheckhtml .= <<<EOF
-
-{$sectplqaa['0']}验证问答{$sectplqaa['1']}<input name="secanswer" id="secqaaverify_{$sechash}" type="text" autocomplete="off" style="width:100px" class="txt px vm" onblur="checksec('qaa', '{$sechash}')" tabindex="{$sectabindex}" />
-<a href="javascript:;" onclick="updatesecqaa('{$sechash}');doane(event);" class="xi2">换一个</a>
-<span id="checksecqaaverify_{$sechash}"><img src="{$__STATICURL}image/common/none.gif" width="16" height="16" class="vm" /></span>
-{$sectplqaa['2']}<span id="secqaa_{$sechash}"></span>
-
-EOF;
- if($secshow) { 
-$seccheckhtml .= <<<EOF
-<script type="text/javascript" reload="1">updatesecqaa('{$sechash}');</script>
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-
-{$sectplqaa['3']}
-
-EOF;
- } if($seccodecheck) { 
-$seccheckhtml .= <<<EOF
-
-{$sectplcode['0']}验证码{$sectplcode['1']}<input name="seccodeverify" id="seccodeverify_{$sechash}" type="text" autocomplete="off" style="
-EOF;
- if($_G['setting']['seccodedata']['type'] != 1) { 
-$seccheckhtml .= <<<EOF
-ime-mode:disabled;
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-width:100px" class="txt px vm" onblur="checksec('code', '{$sechash}')" tabindex="{$sectabindex}" />
-<a href="javascript:;" onclick="updateseccode('{$sechash}');doane(event);" class="xi2">换一个</a>
-<span id="checkseccodeverify_{$sechash}"><img src="{$__STATICURL}image/common/none.gif" width="16" height="16" class="vm" /></span>
-{$sectplcode['2']}<span id="seccode_{$sechash}"></span>
-
-EOF;
- if($secshow) { 
-$seccheckhtml .= <<<EOF
-<script type="text/javascript" reload="1">updateseccode('{$sechash}');</script>
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-
-{$sectplcode['3']}
-
-EOF;
- } } 
-$seccheckhtml .= <<<EOF
-
-
-EOF;
-?><?php unset($secshow);?><?php if(empty($secreturn)) { ?><?php echo $seccheckhtml;?><?php } ?></div>
-<?php } if($allowpostattach && $_GET['from'] != 'preview') { ?>
+<?php if($allowpostattach && $_GET['from'] != 'preview') { ?>
 <script type="text/javascript">
 var editorid = '';
 var ATTACHNUM = {'imageused':0,'imageunused':0,'attachused':0,'attachunused':0}, ATTACHUNUSEDAID = new Array(), IMGUNUSEDAID = new Array();
@@ -1189,7 +1123,7 @@ debug: false
 <input type="hidden" name="subject" value="  " />
 <p class="ptm pnpost">
 <a href="home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=<?php echo $_G['fid'];?>" class="y" target="_blank">本版积分规则</a>
-<button <?php if($allowpostreply) { ?>type="submit" <?php } elseif(!$_G['uid']) { ?>type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" <?php } ?>name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit" tabindex="5"><strong>发表回复</strong></button>
+<button <?php if($allowpostreply) { ?>type="submit" <?php } elseif(!$_G['uid']) { ?>type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" <?php } if(!$seccodecheck) { ?>onmouseover="checkpostrule('seccheck_fastpost', 'ac=reply');this.onmouseover=null" <?php } ?>name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit" tabindex="5"><strong>发表回复</strong></button>
 <?php if(!empty($_G['setting']['pluginhooks']['viewthread_fastpost_btn_extra'])) echo $_G['setting']['pluginhooks']['viewthread_fastpost_btn_extra'];?>
 <?php if(helper_access::check_module('follow')) { ?>
 <label class="lb"><input type="checkbox" name="adddynamic" class="pc" value="1" />回帖并转播</label>

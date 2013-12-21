@@ -1,0 +1,509 @@
+/* ----------------------------------
+
+Main CSS file for metro.
+http://www.shidai123.net.
+Created by joe.
+
+-------------------------------------*/
+
+
+/* 总体样式
+----------------------------------------------------------------------------------------------------*/
+body, input, button, select, textarea { font: 12px/150% "microsoft yahei"; color: rgb(105, 105, 105)}
+.wp { width: 940px}
+li a span { display: none}
+h1, h2, h3, h4, h5, h6 { color: #111111}
+.bm { border: none; }
+.bm_h, .bmw .bm_h { background:none; border-bottom: 1px dotted #DEDEDE}
+a { text-decoration: none; }
+a:hover { text-decoration: none; }
+a, #umnav_menu, .pn{transition: background-color 0.3s linear; -moz-transition: background-color 0.3s linear; -webkit-transition: background-color 0.3s linear; -o-transition: background-color 0.3s linear;}
+#menu-main-nav-menu.sf-menu.sf-js-enabled.sf-shadow { float: left; width: 650px; height: 42px; line-height: 42px}
+.tbn li { border-bottom: 1px solid rgb(238, 238, 238) !important}
+.freeside { border: 0; margin: 0; padding: 0; background: none}
+.freesidetop { padding:0; margin: 15px 0 10px 0 !important; border: 0; background: none}
+.freesidetop2{ border:0; padding:0; margin: 15px 0 0 -8px !important; background: none}
+.mbt { margin: 15px 0 !important; padding: 0; border: 0; background: none}
+.ad980 { width: 980px; height: 90px; overflow: hidden; padding: 0; margin: 20px 0 !important; padding: 0; border: 0; background: none}
+.pluseImage:hover img { transform: scale(1.08, 1.08)}
+.transitionAll { transition: all 0.3s ease 0s}
+.pls { border-right: 1px solid #EEEEEE !important; background: #F8F8F8 !important}
+#postlist.pl.bm { border: 1px solid #EEEEEE; border-top: 3px solid #0D86CC}
+#f_pst.pl.bm.bmw { border: 3px solid #F0F4F8}
+#f_pst .plc { padding: 20px !important}
+.sitecontainer { width: 1000px; height: auto}
+#fwin_showblock.fwinmask { z-index: 999 !important}
+.nav_box { height: 42px; background: none}
+button#commentsubmit_btn.pn { border: 0 !important; width: 60px; height: 25px; margin-top: 5px; background: #0D86CC}
+#commentsubmit_btn strong { color: #FFFFFF}
+.ct2 .mn { width: 690px}
+body { background: url(template/win8mi_metro_megazine/src/img/background.jpg) no-repeat fixed center center transparent}
+.container-wrapper { margin: 0 auto; width: 980px; padding: 0 6px 6px 6px; background: url(template/win8mi_metro_megazine/src/img/container-wrapper.png)}
+.inner-wrapper { width: 980px; margin: 0 auto; background: #FFFFFF}
+.ct2_a .mn { width: 760px !important}
+.ie6 .focus { display: none}
+
+/* 延迟显示效果 */
+a, a:hover {
+    transition: all 0.3s ease 0s
+}
+/* 总体样式结束 */
+/* diy
+----------------------------------------------------------------------------------------------------*/
+.frame, .frame-tab { background: none; border: none; padding: 0; margin: 0}
+.block { margin: 0}
+.temp { margin: 0}
+/* diy end */
+
+
+/* toptb
+----------------------------------------------------------------------------------------------------*/
+#toptb { background: #474747; height: 25px; line-height: 25px; border-bottom: 3px solid #282828}
+#toptb a { height: 25px; line-height: 25px; color: rgb(217, 217, 217); font-size: 11px; padding: 0 10px 0 0}
+#diy-tg { margin-top: 3px}
+#toptb #diy-tg_menu { margin-top: -10px; margin-left: -8px}
+.headerbox { width: auto; height: 130px; border: none; background: none}
+/* toptb end */
+
+/* header
+----------------------------------------------------------------------------------------------------*/
+.headerwidget { width: 470px !important; height: 70px !important; margin-top: 20px; z-index: 800}
+.s_header { width: 940px; margin: 0 auto; height: 90px; padding: 20px 0; overflow: visible}
+.bm_c.u_profile { padding: 10px}
+/* header end */
+
+/* 下拉菜单
+----------------------------------------------------------------------------------------------------*/
+.p_pop, .p_pof, .sllt { padding: 0; border: none; background: #FFFFFF; margin-top: 0; box-shadow: 0 0 30px rgba(0, 0, 0, .35); -moz-box-shadow: 0 0 30px rgba(0, 0, 0, .35); -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, .35); }
+.ie6 .p_pop { border: 1px solid #DDDDDD}
+.p_pop a { color: white}
+.p_pop a, .p_pop a.a, #sctype_menu .sca { padding: 12px 20px; font-size: 12px; line-height: 18px; color: #333 !important; border-bottom: 1px dotted gainsboro; font-weight: normal}
+.p_pop a:hover { background: #F3F3F3}
+.bui a, .bui a:hover { padding:0; border:none; background:none}
+/* 下拉菜单结束 */
+
+
+#toptb a#sslct { float: right; width: 30px; background: url("../../static/image/common/switch_style.png") no-repeat 0 0 !important}
+
+
+/* Member
+----------------------------------------------------------------------------------------------------*/
+#header_user { height: 35px; line-height: 35px; margin-top: 0; margin-right: 0; float: right}
+#header_nav .username { display: block; padding: 0 10px; width: 31px; height: 31px; line-height: 34px; display: block; margin-top: 8px; float: left}
+#header_nav .username img { width: 25px; height: 25px; border-radius: 50%}
+#header_nav span { float: left; height: 42px; line-height: 42px}
+#header_nav span:hover { color: #333333 !important; background: url(template/win8mi_metro_megazine/src/img/arup.png) no-repeat 48px center #F8F8F8 !important}
+#header_nav span:hover a { color: #333333 !important}
+#header_nav span a { font-size: 12px; height: 42px; line-height: 42px; color: #FFFFFF; font-family: "Microsoft Yahei"; padding: 0 10px}
+#pm_ntc.new { background-repeat: no-repeat; background-position: 5px 10px; padding-left: 28px}
+#myprompt.new { background-repeat: no-repeat; background-position: 5px 2px; padding: 0 0 0 20px}
+
+#newprompter span:hover { background: #F8F8F8 !important}
+#umnav_menu { margin-left: -37px; margin-top: 3px}
+.ie6 #umnav_menu { margin-left: -37px; margin-top: 3px; left: 900px !important}
+#umnav_menu li a { float: none !important; width: 63px; height: 15px !important; line-height: 15px; padding: 7px 20px; border-bottom: 0}
+#umnav_menu li span.pipe { display: none}
+#umnav_menu li .qq_bind { margin-left: -18px}
+#umnav_menu li a:hover { color: #FFFFFF !important; border-bottom: 0; background: #0D86CC}
+.login_list {
+    float: right;
+    position: relative;
+    overflow: hidden
+}
+.login_block {
+    display: block;
+    padding: 0px 10px;
+    height: 42px;
+    line-height: 42px;
+    color: #EEEEEE
+}
+a.login_block { padding: 0 8px !important}
+.login_block:hover { background: #FFFFFF; color: rgb(51, 51, 51)}
+.login_block i, .usernav li .png i, .userinfo .arrow, .login_list .i_qq, .login_list .i_wb, .nav_icon {
+    display: block;
+    background: url(template/win8mi_metro_megazine/src/img/icon.png) no-repeat 0 0
+}
+.login_list .i_qq, .login_list .i_wb {
+    width: 35px;
+    height: 35px;
+    margin: 2px 0 0 0;
+    text-indent: -9999px
+}
+.login_list .i_qq { margin-left: 5px; background-position: -180px 0}
+.login_list .i_wb {
+    background-position: -136px 0;
+    margin-right: 0
+}
+.login_list a:hover .i_qq {
+    background-position: -270px 0
+}
+.login_list a:hover .i_wb {
+    background-position: -226px 0
+}
+.m_l, .m_r, .t_l, .t_c, .t_r, .b_c, .b_l, .b_r {
+    display: none;
+}
+.m_c .flb em {
+    color: rgb(76, 76, 76);
+    text-shadow: 0px 1px 1px rgb(255, 255, 255);
+}
+.m_c .flb {
+    line-height: 18px;
+    padding: 9px 9px 8px 15px;
+    border-top: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(229, 229, 229);
+    background: none repeat scroll 0% 0% rgb(247, 247, 247);
+    margin-bottom: 10px;
+}
+.m_c {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(221, 221, 221)
+}
+.rfm a {
+    color: rgb(49, 132, 219);
+}
+.rfm .px:focus {
+    border-color: rgb(49, 132, 219);
+    background: none repeat scroll 0% 0% rgb(255, 255, 255);
+}
+#fwin_login.fwinmask { z-index: 999 !important}
+/* Member end*/
+
+/* Search
+----------------------------------------------------------------------------------------------------*/
+#scbar { float: right; height: 25px; line-height: 25px; border: medium none; margin: 0; overflow: visible; background: #2C2C2C}
+#scbar.longer { box-shadow: none}
+#scbar_txt { border: 0; height: 25px; line-height: 25px;width: 120px; padding: 0 10px; font-size: 14px; transition: all 0.3s ease-in-out 0s; background: none}
+#scbar.longer #scbar_txt { width: 150px; transition: all 0.3s ease-in-out 0s}
+#scbar_type { display: block; padding-left: 10px;text-align: left;text-decoration: none}
+.scbar_type_td { width: 35px; height: 25px; border: 0}
+.scbar_type_td #scbar_type { width: 35px; height: 25px; background: none; border: 0}
+#scbar.longer .scbar_type_td #scbar_type { transition: all 0.3s ease-in-out 0s}
+.scbar_txt_td { border: medium none}
+.scbar_txt_td, .scbar_type_td { background: none repeat scroll 0% 0% transparent}
+.scbar_btn_td { width: 20px; height: 25px; background: url(template/win8mi_metro_megazine/src/img/search.png) no-repeat center center; display: block}
+#scbar_btn { margin: 0; padding: 0; border: medium none ;background: none repeat scroll 0% 0% transparent; box-shadow: none}
+#scbar_btn { width: 25px; height: 25px}
+#scbar_type { color: #999999}
+#scbar_type_menu { margin-top: 3px; margin-left: 0}
+.ie6 #scbar_type_menu { margin-top: 3px; left: 850px !important}
+#scbar_type_menu li a { float: none !important; color: #EEEEEE !important; font-size: 12px !important; padding: 3px 15px; border-bottom: 1px solid #999999; background: #474747}
+#scbar_type_menu li a:hover { border-bottom: 1px solid #91AB38}
+A#scbar_type.xg1 { font-size: 11px !important; font-family: "Microsoft Yahei" !important; color: #CCCCCC !important}
+input#scbar_txt.xg1 { font-size: 10px !important; font-family: "Microsoft Yahei" !important; color: #CCCCCC !important}
+
+/* Search end*/
+
+
+
+
+
+/* Cat Title
+----------------------------------------------------------------------------------------------------*/
+.bm_h {height: 30px;line-height: 30px; padding:0 0 10px 0; background:none; border-bottom: 1px dotted #DEDEDE;}
+.bm_h h2 { font-size: 16px;font-weight: normal;}
+/* Cat Title end*/
+
+
+
+
+/* Btn
+----------------------------------------------------------------------------------------------------*/
+.pn { margin-left: 0}
+.px { margin-left: 0}
+.pnc, a.pnc { background: #0D86CC; border: none}
+.pnc:hover, a.pnc:hover { background: #333333}
+.pgs #newspecial, .pgs #newspecialtmp { float: left; width: 112px; height: 32px; margin-right:0; background: url({STYLEIMGDIR}all/pn_post.png) no-repeat 0 0 #0D86CC}
+#post_reply, #post_replytmp { float: left; margin-left: 5px; width: 55px; height: 32px; overflow: hidden; background: url({STYLEIMGDIR}all/pn_reply.png) no-repeat 0 0 #0D86CC}
+#newspecial img, #newspecialtmp img, #post_reply img, #post_replytmp img { opacity: 0; filter: alpha(opacity=0); visibility: hidden}
+/* Btn end*/
+
+
+
+/* Page
+----------------------------------------------------------------------------------------------------*/
+#pgt .pg, #pgt .pgb { margin-top:0;}
+.pg a, .pg strong, .pgb a, .pg label { border: none; margin-left: 0}
+.pg strong { background-color: #0D86CC; color: white; display: block; float: left; padding: 2px 13px; margin-left: 5px; font-weight: normal}
+.pg a, .pgb a, .pg label { display: block; float: left; background-color: #EEEEEE; padding: 2px 13px; margin-left: 5px; color: #0D86CC}
+.pg a.nxt { background-repeat: no-repeat; background-image: none; display: block; float: left; padding: 2px 13px; margin-left: 5px}
+.pg label { display: none}
+.pg a:hover, .pgb a:hover { color: white; background-color: #0D86CC; border: none}
+.pg a.prev { background-repeat: no-repeat}
+.pgb a { padding-left: 12px; background-image: none}
+/* Page end*/
+
+
+/*返回顶部*/
+#scrolltop { margin-left: 25px}
+.ie6 #scrolltop { margin-left: -30px}
+
+
+/* Footer
+----------------------------------------------------------------------------------------------------*/
+
+#ft strong { font-weight:normal;}
+#ft .textwidget p.ft-message { margin-bottom:20px;}
+.ft-findwe a{ display:block; float:left; width:16px; height:16px; padding-right:5px; background:url({STYLEIMGDIR}/all/is.png) no-repeat;}
+.ft-findwe a.f-sina { background-position:-4px -120px;}
+.ft-findwe a.f-qq { background-position:-4px -80px;}
+.ft-findwe a.f-qwb { background-position:-4px -240px;}
+.ft-findwe a.f-rr { background-position:-4px -200px;}
+/* Footer end*/
+
+
+
+/* Login
+----------------------------------------------------------------------------------------------------*/
+form .rfm { margin-left:0;}
+form .rfm .rq { display:none;}
+form .rfm th, .rfm td { height:32px; line-height:32px;}
+form .rfm .p_chk, .rfm .p_tip { height:30px; line-height:30px;}
+form .rfm th { text-align:left; width:5em; font-size:14px; }
+form .rfm .pn { height:30px; line-height:30px;}
+form .rfm .pn em, .rfm .pn span, .rfm .pn strong { padding:0 20px;}
+form .rfm .px, .rfm .pt { padding:8px 5px;}
+form .rfm .px, .rfm .pt, .ps, .rfm select { border:1px solid #E3E3E3; background:none; }
+form .rfm #reginfo_a_btn em { display:none;}
+form .rfm .ps, .rfm select {margin-left: 0;padding: 6px;}
+#fwin_login  .m_c{ background:#fff url({STYLEIMGDIR}/all/m2.png) no-repeat 285px 100px;}
+/* Login end*/
+
+
+
+/* Else
+----------------------------------------------------------------------------------------------------*/
+.flbc { background-image: url({STYLEIMGDIR}/all/cls.gif); }
+.tb { padding-left:0;}
+.rfm { border-bottom:none;}
+.fwinmask { top:0;  -webkit-transition: opacity .2s linear, top .2s ease-out;
+-moz-transition: opacity .2s linear, top .2s ease-out;
+-o-transition: opacity .2s linear, top .2s ease-out;
+transition: opacity .2s linear, top .2s ease-out;}
+.t_l, .t_r, .b_l, .b_r { border-radius: 0;}
+/* Else end*/
+
+
+/* 图文列表页 - 4A设计 */
+		.win8mi_simple {}
+		.win8mi_simple .mn { float: left; width: 650px; margin-bottom: 1em}
+		.win8mi_simple .sd { float: right; width: 260px; overflow: hidden}
+		.ie6 .win8mi_simple .sd { float: right; width: 280px; overflow: hidden}
+		.win8mi_simple .bm { border: none}
+			.win8mi_simple .sd .bm { border: none}
+			.win8mi_simple_list .mn .bm { border-right: 0; padding-left: 0}
+			.win8mi_simple_view .bm { border:1px solid #DDDDDD}
+			.win8mi_simple_view .vw .d { margin-left: 0}
+			.win8mi_simple_view .vw .h { border-bottom: 1px solid #eee !important; }
+			.win8mi_simple_view .vw .s { border-bottom: 1px solid #eee !important; }
+		.win8mi_simple .bm_h { background:none; border-bottom:1px solid #ddd; box-shadow:none; }
+			.win8mi_simple .bm_h .xs2 { font-size:18px !important; font-weight:normal; }
+		.win8mi_simple .bm_c { padding: 0px;}
+		
+			.win8mi_simple .sd .bm_c { padding: 10px;}
+				.win8mi_simple_cat ul { list-style-type:none; }
+				.win8mi_simple_cat li { margin:0px 10px 10px 0px; width:120px;height:40px;  margin-right:10px;}
+				.win8mi_simple_cat li:nth-child(2n) { float:right; margin-right:0px;}
+				.win8mi_simple_cat li a { background:#fa1; width:120px; height:40px; line-height:40px; text-align:center; color:#fff; font-size:14px; display:block; box-shadow:1px 1px 3px #ccc; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px;  }
+				.win8mi_simple_cat li a:hover { background:#5a1;  }
+		
+	/* repair the space of the article's comment too small,cause of bm_c padding: 0px;  */
+    .win8mi_simple #comment .bm_c {padding: 10px; font-size:14px;}
+	.win8mi_simple #comment h3 { font-size:17px; }
+	.win8mi_simple #comment .quote { color:#999; }
+		
+		/* redefine the border of article list */
+		/*
+		.bbda { border-bottom: 1px dashed {COMMONBORDER}; }
+		.bbs { border-bottom: 1px solid {COMMONBORDER} !important; }
+		*/	
+/* 二级分类 */	
+.bbs { border-bottom: 1px solid #EEEEEE !important}
+.win8mi_simple .bbda { border-bottom: 1px dashed #eee !important; line-height:35px; font-size:14px; }
+.win8mi_simple .bbs { position: relative; border-bottom: 1px solid #EEEEEE !important}
+.win8mi_simple .bbs:hover { background: none}
+/* portal article title */
+.bm_c .xs2 a.xi2 { color: #333333; font-size: 20px; font-weight: normal}
+/* portal article list summary */
+.bm_c .xs2 { color:#999; font-size:12px !important}
+		
+/* redefine xld as win8mi_xld */
+.win8mi_xld .m { float: left; margin: 8px 8px 10px 0}
+.win8mi_xld dl { padding: 25px 0 10px 0; line-height: 24px}
+.win8mi_xld dl:hover { background: #F8F8F8}
+.win8mi_xld dl:hover .xs2 a { color: #57BAE8}
+.win8mi_xld dl:hover img { opacity: .8; -moz-opacity: .8; filter: alpha(opacity=80)}
+.win8mi_xld .atc { float: left; margin: 0 15px 15px 0}
+.win8mi_list_pic img { float: left; width: 260px; height: 180px;  max-height: 180px; padding: 0; margin-top: 0; border: 0}
+
+
+/* 文章列表页右侧样式 */
+em, cite, i {
+    font-style: normal;
+}
+.p_tit {
+    height: 32px;
+    line-height: 32px;
+	border: 0;
+    margin-bottom: 5px;
+	background: #333333
+}
+.p_tit h2 {
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+	padding-left: 10px;
+    overflow: hidden;
+	color: #FFFFFF;
+    float: left;
+	font-weight: 600;
+	font-family: "宋体"
+}
+.move a {
+    width: 65px;
+    height: 30px;
+    display: block;
+    line-height: 30px;;
+    text-align: center;
+    color: rgb(113, 119, 127);
+    text-decoration: none;
+    background: none repeat scroll 0% 0% rgb(238, 238, 238)	
+}
+.move a:hover {
+    background: #57BAE8;
+    color: rgb(248, 248, 248);
+}
+.hot_news {}
+.hot_news li {
+    height: 26px;
+    line-height: 26px;
+    overflow: hidden;
+}
+.hot_news .num {
+    margin-right: 5px;
+    float: left;
+}
+.hot_news a {
+    color: rgb(113, 119, 127);
+    text-shadow: 0 2px 0 #FFFFFF;
+    font-size: 14px;
+}
+.rec { padding-bottom: 10px; background: #F3F3F3}
+.rec_pic {
+    background: none repeat scroll 0% 0% rgb(243, 243, 243);
+    text-align: center;
+    padding: 14px 0px 0px;
+	margin-top: 10px
+}
+.rec h3 {
+    font-size: 16px;
+    line-height: 23px;
+    background: none repeat scroll 0% 0% rgb(243, 243, 243);
+    padding: 14px 14px 0px;
+}
+.rec h3 a {
+    color: rgb(80, 91, 103);
+}
+.rec p {
+    color: rgb(145, 151, 159);
+    font-size: 12px;
+    line-height: 20px;
+    background: none repeat scroll 0% 0% rgb(243, 243, 243);
+    padding: 0px 12px 5px;
+}
+
+
+.index_tit {
+    background: none repeat scroll 0% 0% #0D86CC;
+    margin-bottom: 20px;
+    padding: 8px 10px;
+    height: 24px
+}
+.index_tit ul {
+    float: right;
+}
+.index_tit ul li {
+    display: inline-block;
+    text-indent: -999em;
+    margin-right: 5px;
+    width: 12px;
+    height: 12px;
+    margin-top: 7px;
+    background: url(template/win8mi_metro_megazine/src/img/focus_li.png) no-repeat 0 0;
+    cursor: pointer;
+    float: left
+}
+.index_tit ul li.on {
+    background: url(template/win8mi_metro_megazine/src/img/focus_on.png) no-repeat scroll 0px 0px transparent;
+}
+#ct .frame {
+    margin: 0px;
+    border: medium none
+}
+.index_tit h3 {
+    background: url(template/win8mi_metro_megazine/src/img/left.png) no-repeat left center;
+    padding-left: 24px;
+    float: left;
+    font-size: 16px;
+    height: 24px;
+    line-height: 24px;
+    color: rgb(255, 255, 255);
+}
+.index_tit .more {
+    float: right;
+    background: url(template/win8mi_metro_megazine/src/img/arrow-circle.png) no-repeat right center;
+    width: 30px;
+    height: 24px;
+    text-indent: -9999px
+}
+
+/* 头部应用图标样式 */
+.social { float: right}
+.social ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0
+}
+.social ul li:first-child {
+    margin-left: 0px;
+}
+.social ul li {
+    float: left;
+    margin-left: 5px;
+}
+.social ul li a {
+    display: block;
+    float: left;
+    height: 48px;
+    width: 48px;
+    text-indent: -999em;
+}
+.social ul li a {
+    transition: all 0.3s ease 0s;
+}
+.social ul li a.twitter {
+    background: url(template/win8mi_metro_megazine/src/img/twitter.png) no-repeat scroll left center transparent;
+}
+.social ul li a.fb {
+    background: url(template/win8mi_metro_megazine/src/img/facebook.png) no-repeat scroll left center transparent;
+}
+.social ul li a.gplus {
+    background: url(template/win8mi_metro_megazine/src/img/gplus.png) no-repeat scroll left center transparent;
+}
+.social ul li a.rss {
+    background: url(template/win8mi_metro_megazine/src/img/rss2.png) no-repeat scroll left center transparent;
+}
+.social ul li a:hover { opacity: 0.8}
+
+
+/* Footer
+----------------------------------------------------------------------------------------------------*/
+#ft { padding: 20px 0 30px 0; border: none; border-top: 1px solid #EEEEEE}
+#ft strong { font-weight: normal}
+#ft .textwidget p.ft-message { margin-bottom: 20px}
+.ft-findwe a{ display: block; float: left; width: 16px; height: 16px; padding-right: 5px; background: url({STYLEIMGDIR}/all/is.png) no-repeat}
+.ft-findwe a.f-sina { background-position: -4px -120px}
+.ft-findwe a.f-qq { background-position: -4px -80px}
+.ft-findwe a.f-qwb { background-position: -4px -240px}
+.ft-findwe a.f-rr { background-position: -4px -200px}
+/* Footer end*/

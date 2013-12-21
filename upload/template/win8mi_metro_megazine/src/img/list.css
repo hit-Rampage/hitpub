@@ -1,0 +1,9 @@
+/* Break-pt menu
+----------------------------------------------------------------------------------------------------*/
+#pt { margin: 5px 0}
+#pt .z a, #pt .z em, #pt .z span { background: #EEEEEE; color: #333333; padding: 0 10px; height: 28px; line-height: 28px; text-decoration: none}
+#pt .z a:hover { background: #777777; color: #FFFFFF}
+#pt .nvhm, #pt em { display: none}
+/* Break-pt end*/
+
+

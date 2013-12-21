@@ -1,17 +1,18 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('post');
 0
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_extra.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_body.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_attribute.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/seccheck.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor_menu.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/editor_menu_forum.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/upload.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1384658165, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_extra.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_body.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_attribute.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/seccheck_post.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor_menu.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/editor_menu_forum.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/upload.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/seccheck.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1387557988, '1', './data/template/1_1_forum_post.tpl.php', './template/default', 'forum/post')
 ;?><?php include template('common/header'); ?><script type="text/javascript">
 var allowpostattach = parseInt('<?php echo $_G['group']['allowpostattach'];?>');
 var allowpostimg = parseInt('<?php echo $allowpostimg;?>');
@@ -22,8 +23,8 @@ var imgexts = '<?php echo $imgexts;?>';
 var postminchars = parseInt('<?php echo $_G['setting']['minpostsize'];?>');
 var postmaxchars = parseInt('<?php echo $_G['setting']['maxpostsize'];?>');
 var disablepostctrl = parseInt('<?php echo $_G['group']['disablepostctrl'];?>');
-var seccodecheck = parseInt('<?php if(checkperm('seccode') && $seccodecheck) { ?>1<?php } else { ?>0<?php } ?>');
-var secqaacheck = parseInt('<?php if(checkperm('seccode') && $secqaacheck) { ?>1<?php } else { ?>0<?php } ?>');
+var seccodecheck = parseInt('<?php if($seccodecheck) { ?>1<?php } else { ?>0<?php } ?>');
+var secqaacheck = parseInt('<?php if($secqaacheck) { ?>1<?php } else { ?>0<?php } ?>');
 var typerequired = parseInt('<?php echo $_G['forum']['threadtypes']['required'];?>');
 var sortrequired = parseInt('<?php echo $_G['forum']['threadsorts']['required'];?>');
 var special = parseInt('<?php echo $special;?>');
@@ -639,76 +640,34 @@ var custombbcodes = new Array();
 <?php if(!empty($_G['setting']['pluginhooks']['post_attribute_extra_body'])) echo $_G['setting']['pluginhooks']['post_attribute_extra_body'];?>
 </div>
 </div>
-<?php if($_GET['action'] != 'edit' && checkperm('seccode') && ($secqaacheck || $seccodecheck)) { ?><?php
+<?php if($_GET['action'] != 'edit') { ?>
+<div id="seccheck">
+<?php if($secqaacheck || $seccodecheck) { ?><?php
 $sectpl = <<<EOF
-<sec> <span id="sec<hash>" onclick="showMenu(this.id);"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div>
+<sec> <span id="sec<hash>" onclick="showMenu(
+EOF;
+ if(!empty($_G['gp_infloat'])) { 
+$sectpl .= <<<EOF
+{'ctrlid':this.id,'win':'{$_GET['handlekey']}'}
+EOF;
+ } else { 
+$sectpl .= <<<EOF
+this.id
+EOF;
+ } 
+$sectpl .= <<<EOF
+)"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div>
 EOF;
 ?>
-<div class="mtm"><?php $_G['sechashi'] = !empty($_G['cookie']['sechashi']) ? $_G['sechash'] + 1 : 0;
-$sechash = 'S'.($_G['inajax'] ? 'A' : '').$_G['sid'].$_G['sechashi'];
-$sectpl = !empty($sectpl) ? explode("<sec>", $sectpl) : array('<br />',': ','<br />','');
-$sectpldefault = $sectpl;
-$sectplqaa = str_replace('<hash>', 'qaa'.$sechash, $sectpldefault);
-$sectplcode = str_replace('<hash>', 'code'.$sechash, $sectpldefault);
-$secshow = !isset($secshow) ? 1 : $secshow;
-$sectabindex = !isset($sectabindex) ? 1 : $sectabindex;?><?php
-$__STATICURL = STATICURL;$seccheckhtml = <<<EOF
-
-<input name="sechash" type="hidden" value="{$sechash}" />
-
-EOF;
- if($sectpl) { if($secqaacheck) { 
-$seccheckhtml .= <<<EOF
-
-{$sectplqaa['0']}验证问答{$sectplqaa['1']}<input name="secanswer" id="secqaaverify_{$sechash}" type="text" autocomplete="off" style="width:100px" class="txt px vm" onblur="checksec('qaa', '{$sechash}')" tabindex="{$sectabindex}" />
-<a href="javascript:;" onclick="updatesecqaa('{$sechash}');doane(event);" class="xi2">换一个</a>
-<span id="checksecqaaverify_{$sechash}"><img src="{$__STATICURL}image/common/none.gif" width="16" height="16" class="vm" /></span>
-{$sectplqaa['2']}<span id="secqaa_{$sechash}"></span>
-
-EOF;
- if($secshow) { 
-$seccheckhtml .= <<<EOF
-<script type="text/javascript" reload="1">updatesecqaa('{$sechash}');</script>
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-
-{$sectplqaa['3']}
-
-EOF;
- } if($seccodecheck) { 
-$seccheckhtml .= <<<EOF
-
-{$sectplcode['0']}验证码{$sectplcode['1']}<input name="seccodeverify" id="seccodeverify_{$sechash}" type="text" autocomplete="off" style="
-EOF;
- if($_G['setting']['seccodedata']['type'] != 1) { 
-$seccheckhtml .= <<<EOF
-ime-mode:disabled;
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-width:100px" class="txt px vm" onblur="checksec('code', '{$sechash}')" tabindex="{$sectabindex}" />
-<a href="javascript:;" onclick="updateseccode('{$sechash}');doane(event);" class="xi2">换一个</a>
-<span id="checkseccodeverify_{$sechash}"><img src="{$__STATICURL}image/common/none.gif" width="16" height="16" class="vm" /></span>
-{$sectplcode['2']}<span id="seccode_{$sechash}"></span>
-
-EOF;
- if($secshow) { 
-$seccheckhtml .= <<<EOF
-<script type="text/javascript" reload="1">updateseccode('{$sechash}');</script>
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-
-{$sectplcode['3']}
-
-EOF;
- } } 
-$seccheckhtml .= <<<EOF
-
-
-EOF;
-?><?php unset($secshow);?><?php if(empty($secreturn)) { ?><?php echo $seccheckhtml;?><?php } ?></div>
+<div class="mtm"><?php $sechash = !isset($sechash) ? 'S'.($_G['inajax'] ? 'A' : '').$_G['sid'] : $sechash.random(3);
+$sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
+<span id="secqaa_q<?php echo $sechash;?>"></span>		
+<script type="text/javascript" reload="1">updatesecqaa('q<?php echo $sechash;?>', '<?php echo $sectpl;?>', '<?php echo $_G['basescript'];?>::<?php echo CURMODULE;?>');</script>
+<?php } if($seccodecheck) { ?>
+<span id="seccode_c<?php echo $sechash;?>"></span>		
+<script type="text/javascript" reload="1">updateseccode('c<?php echo $sechash;?>', '<?php echo $sectpl;?>', '<?php echo $_G['basescript'];?>::<?php echo CURMODULE;?>');</script>
+<?php } ?></div><?php } ?>
+</div>
 <?php } ?>
 
 <div class="mtm mbm pnpost">

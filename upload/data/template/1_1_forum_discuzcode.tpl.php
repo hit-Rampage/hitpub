@@ -499,13 +499,7 @@ $return .= <<<EOF
 </div>
 
 EOF;
- } else { 
-$return .= <<<EOF
-
-<div class="mbn">
-
-EOF;
- if($_G['setting']['thumbstatus'] && $attach['thumb']) { 
+ } else { if($_G['setting']['thumbstatus'] && $attach['thumb']) { 
 $return .= <<<EOF
 
 <img
@@ -597,13 +591,7 @@ $return .= <<<EOF
  />
 
 EOF;
- } 
-$return .= <<<EOF
-
-</div>
-
-EOF;
- } 
+ } } 
 $return .= <<<EOF
 
 <div class="tip tip_4 aimg_tip" id="aimg_{$attach['aid']}_menu" style="position: absolute; display: none" disautofocus="true">

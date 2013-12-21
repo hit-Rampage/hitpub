@@ -1,12 +1,12 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('forumdisplay');
 0
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_leftside.htm', 1384658020, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/recommend.htm', 1384658020, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/common/seccheck.htm', 1384658020, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_list.htm', 1384658020, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_sort.htm', 1384658020, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1384658020, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
-|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1384658020, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_leftside.htm', 1387557427, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/recommend.htm', 1387557427, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/common/seccheck.htm', 1387557427, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_list.htm', 1387557427, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/forumdisplay_sort.htm', 1387557427, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1387557427, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
+|| checktplrefresh('./template/default/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1387557427, 'diy', './data/template/1_diy_forum_forumdisplay.tpl.php', './template/default', 'forum/forumdisplay')
 ;?><?php include template('common/header'); if($_G['forum']['ismoderator']) { ?>
 <script src="<?php echo $_G['setting']['jspath'];?>forum_moderate.js?<?php echo VERHASH;?>" type="text/javascript"></script>
 <?php } ?>
@@ -63,7 +63,7 @@
 <div class="bm_h cl">
 <?php if($_G['page'] == 1 && $_G['forum']['rules']) { ?><span class="o"><img id="forum_rules_<?php echo $_G['fid'];?>_img" src="<?php echo IMGDIR;?>/collapsed_<?php echo $collapse['forum_rulesimg'];?>.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('forum_rules_<?php echo $_G['fid'];?>')" /></span><?php } ?>
 <span class="y">
-<a href="home.php?mod=spacecp&amp;ac=favorite&amp;type=forum&amp;id=<?php echo $_G['fid'];?>&amp;handlekey=favoriteforum" id="a_favorite" class="fa_fav" onclick="showWindow(this.id, this.href, 'get', 0);">收藏本版 <strong class="xi1" id="number_favorite" <?php if(!$_G['forum']['favtimes']) { ?> style="display:none;"<?php } ?>>(<span id="number_favorite_num"><?php echo $_G['forum']['favtimes'];?></span>)</strong></a>
+<a href="home.php?mod=spacecp&amp;ac=favorite&amp;type=forum&amp;id=<?php echo $_G['fid'];?>&amp;handlekey=favoriteforum&amp;formhash=<?php echo FORMHASH;?>" id="a_favorite" class="fa_fav" onclick="showWindow(this.id, this.href, 'get', 0);">收藏本版 <strong class="xi1" id="number_favorite" <?php if(!$_G['forum']['favtimes']) { ?> style="display:none;"<?php } ?>>(<span id="number_favorite_num"><?php echo $_G['forum']['favtimes'];?></span>)</strong></a>
 <?php if(rssforumperm($_G['forum']) && $_G['setting']['rssstatus'] && !$_GET['archiveid'] && !$subforumonly) { ?><span class="pipe">|</span><a href="forum.php?mod=rss&amp;fid=<?php echo $_G['fid'];?>&amp;auth=<?php echo $rssauth;?>" class="fa_rss" target="_blank" title="RSS">订阅</a><?php } if(!empty($forumarchive)) { ?>
 <span class="pipe">|</span><a id="forumarchive" href="javascript:;" class="fa_achv" onmouseover="showMenu(this.id)"><?php if($_GET['archiveid']) { ?><?php echo $forumarchive[$_GET['archiveid']]['displayname'];?><?php } else { ?>存档<?php } ?></a>
 <?php } ?>
@@ -235,76 +235,19 @@ slideImgTexts[<?php echo $k+1; ?>] = '<?php echo $imginfo['subject'];?>';
 <?php } ?>
 </div>
 <div id="livepostsubmit" style="display:none;">
-<?php if(checkperm('seccode') && ($secqaacheck || $seccodecheck)) { ?><?php
+<?php if($secqaacheck || $seccodecheck) { ?><?php
 $sectpl = <<<EOF
 <sec> <span id="sec<hash>" onclick="showMenu(this.id)"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div>
 EOF;
 ?>
-<div class="mtm sec" style="text-align:right;"><?php $_G['sechashi'] = !empty($_G['cookie']['sechashi']) ? $_G['sechash'] + 1 : 0;
-$sechash = 'S'.($_G['inajax'] ? 'A' : '').$_G['sid'].$_G['sechashi'];
-$sectpl = !empty($sectpl) ? explode("<sec>", $sectpl) : array('<br />',': ','<br />','');
-$sectpldefault = $sectpl;
-$sectplqaa = str_replace('<hash>', 'qaa'.$sechash, $sectpldefault);
-$sectplcode = str_replace('<hash>', 'code'.$sechash, $sectpldefault);
-$secshow = !isset($secshow) ? 1 : $secshow;
-$sectabindex = !isset($sectabindex) ? 1 : $sectabindex;?><?php
-$__STATICURL = STATICURL;$seccheckhtml = <<<EOF
-
-<input name="sechash" type="hidden" value="{$sechash}" />
-
-EOF;
- if($sectpl) { if($secqaacheck) { 
-$seccheckhtml .= <<<EOF
-
-{$sectplqaa['0']}验证问答{$sectplqaa['1']}<input name="secanswer" id="secqaaverify_{$sechash}" type="text" autocomplete="off" style="width:100px" class="txt px vm" onblur="checksec('qaa', '{$sechash}')" tabindex="{$sectabindex}" />
-<a href="javascript:;" onclick="updatesecqaa('{$sechash}');doane(event);" class="xi2">换一个</a>
-<span id="checksecqaaverify_{$sechash}"><img src="{$__STATICURL}image/common/none.gif" width="16" height="16" class="vm" /></span>
-{$sectplqaa['2']}<span id="secqaa_{$sechash}"></span>
-
-EOF;
- if($secshow) { 
-$seccheckhtml .= <<<EOF
-<script type="text/javascript" reload="1">updatesecqaa('{$sechash}');</script>
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-
-{$sectplqaa['3']}
-
-EOF;
- } if($seccodecheck) { 
-$seccheckhtml .= <<<EOF
-
-{$sectplcode['0']}验证码{$sectplcode['1']}<input name="seccodeverify" id="seccodeverify_{$sechash}" type="text" autocomplete="off" style="
-EOF;
- if($_G['setting']['seccodedata']['type'] != 1) { 
-$seccheckhtml .= <<<EOF
-ime-mode:disabled;
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-width:100px" class="txt px vm" onblur="checksec('code', '{$sechash}')" tabindex="{$sectabindex}" />
-<a href="javascript:;" onclick="updateseccode('{$sechash}');doane(event);" class="xi2">换一个</a>
-<span id="checkseccodeverify_{$sechash}"><img src="{$__STATICURL}image/common/none.gif" width="16" height="16" class="vm" /></span>
-{$sectplcode['2']}<span id="seccode_{$sechash}"></span>
-
-EOF;
- if($secshow) { 
-$seccheckhtml .= <<<EOF
-<script type="text/javascript" reload="1">updateseccode('{$sechash}');</script>
-EOF;
- } 
-$seccheckhtml .= <<<EOF
-
-{$sectplcode['3']}
-
-EOF;
- } } 
-$seccheckhtml .= <<<EOF
-
-
-EOF;
-?><?php unset($secshow);?><?php if(empty($secreturn)) { ?><?php echo $seccheckhtml;?><?php } ?></div>
+<div class="mtm sec" style="text-align:right;"><?php $sechash = !isset($sechash) ? 'S'.($_G['inajax'] ? 'A' : '').$_G['sid'] : $sechash.random(3);
+$sectpl = str_replace("'", "\'", $sectpl);?><?php if($secqaacheck) { ?>
+<span id="secqaa_q<?php echo $sechash;?>"></span>		
+<script type="text/javascript" reload="1">updatesecqaa('q<?php echo $sechash;?>', '<?php echo $sectpl;?>', '<?php echo $_G['basescript'];?>::<?php echo CURMODULE;?>');</script>
+<?php } if($seccodecheck) { ?>
+<span id="seccode_c<?php echo $sechash;?>"></span>		
+<script type="text/javascript" reload="1">updateseccode('c<?php echo $sechash;?>', '<?php echo $sectpl;?>', '<?php echo $_G['basescript'];?>::<?php echo CURMODULE;?>');</script>
+<?php } ?></div>
 <?php } ?>
 <p class="ptm pnpost" style="margin-bottom:10px;">
 <button type="submit" name="replysubmit" class="pn pnc vm" style="float:right;" value="replysubmit" id="livereplysubmit">
@@ -885,7 +828,7 @@ EOF;
 </tbody>
 <script type="text/javascript">hideStickThread();</script>
 <?php } if($separatepos <= $key + 1) { ?><?php echo adshow("threadlist");?><?php } ?>
-<tbody id="<?php echo $thread['id'];?>">
+<tbody id="<?php echo $thread['id'];?>"<?php if($_G['hiddenexists'] && $thread['hidden']) { ?> style='display:none'<?php } ?>>
 <tr>
 <td class="icn">
 <a href="forum.php?mod=viewthread&amp;tid=<?php echo $thread['icontid'];?>&amp;<?php if($_GET['archiveid']) { ?>archiveid=<?php echo $_GET['archiveid'];?>&amp;<?php } ?>extra=<?php echo $extra;?>" title="<?php if($thread['displayorder'] == 1) { ?>本版置顶主题 - <?php } if($thread['displayorder'] == 2) { ?>分类置顶主题 - <?php } if($thread['displayorder'] == 3) { ?>全局置顶主题 - <?php } if($thread['displayorder'] == 4) { ?>多版置顶主题 - <?php } if($thread['folder'] == 'lock') { ?>关闭的主题 - <?php } if($thread['special'] == 1) { ?>投票 - <?php } if($thread['special'] == 2) { ?>商品 - <?php } if($thread['special'] == 3) { ?>悬赏 - <?php } if($thread['special'] == 4) { ?>活动 - <?php } if($thread['special'] == 5) { ?>辩论 - <?php } if($thread['folder'] == "new") { ?>有新回复 - <?php } ?>
@@ -921,16 +864,18 @@ EOF;
 </td>
 <?php } ?>
 <th class="<?php echo $thread['folder'];?>">
+<a href="javascript:;" id="content_<?php echo $thread['tid'];?>" class="showcontent y" title="更多操作" onclick="CONTENT_TID='<?php echo $thread['tid'];?>';CONTENT_ID='<?php echo $thread['id'];?>';showMenu({'ctrlid':this.id,'menuid':'content_menu'})"></a>
 <?php if(in_array($thread['displayorder'], array(1, 2, 3, 4))) { ?>
 <a href="javascript:void(0);" onclick="hideStickThread('<?php echo $thread['tid'];?>')" class="showhide y" title="隐藏置顶帖">隐藏置顶帖</a></em>
 <?php } if(!$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])) { $thread[tid]=$thread[closed];?><?php } if(!$_G['setting']['forumdisplaythreadpreview'] && !($thread['readperm'] && $thread['readperm'] > $_G['group']['readaccess'] && !$_G['forum']['ismoderator'] && $thread['authorid'] != $_G['uid'])) { if(!(!empty($_G['setting']['antitheft']['allow']) && empty($_G['setting']['antitheft']['disable']['thread']) && empty($_G['forum']['noantitheft']))) { ?>
-<a class="tdpre y" href="javascript:void(0);" onclick="previewThread('<?php echo $thread['tid'];?>', '<?php echo $thread['id'];?>');">预览</a>
-<?php } } ?>																				<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_thread'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_thread'][$key];?>
+<a class="tdpre y" href="javascript:void(0);" onclick="previewThread('<?php echo $thread['moved'] ? $thread['closed'] : $thread['tid']; ?>', '<?php echo $thread['id'];?>');">预览</a>
+<?php } } ?>
+<?php if(!empty($_G['setting']['pluginhooks']['forumdisplay_thread'][$key])) echo $_G['setting']['pluginhooks']['forumdisplay_thread'][$key];?>
 <?php echo $thread['typehtml'];?> <?php echo $thread['sorthtml'];?>
 <?php if($thread['moved']) { ?>
 移动:<?php $thread[tid]=$thread[closed];?><?php } ?>
 <a href="forum.php?mod=viewthread&amp;tid=<?php echo $thread['tid'];?>&amp;<?php if($_GET['archiveid']) { ?>archiveid=<?php echo $_GET['archiveid'];?>&amp;<?php } ?>extra=<?php echo $extra;?>"<?php echo $thread['highlight'];?><?php if($thread['isgroup'] == 1 || $thread['forumstick']) { ?> target="_blank"<?php } else { ?> onclick="atarget(this)"<?php } ?> class="s xst"><?php echo $thread['subject'];?></a>
-<?php if($thread['icon'] >= 0) { ?>
+<?php if($_G['setting']['threadhidethreshold'] && $thread['hidden'] >= $_G['setting']['threadhidethreshold']) { ?><span class="xg1">隐藏</span>&nbsp;<?php } if($thread['icon'] >= 0) { ?>
 <img src="<?php echo STATICURL;?>image/stamp/<?php echo $_G['cache']['stamps'][$thread['icon']]['url'];?>" alt="<?php echo $_G['cache']['stamps'][$thread['icon']]['text'];?>" align="absmiddle" />
 <?php } if($thread['rushreply']) { ?>
 <img src="<?php echo IMGDIR;?>/rushreply_s.png" alt="抢楼" align="absmiddle" />
@@ -992,9 +937,11 @@ EOF;
 </tbody>
 <?php } ?>
 </table><!-- end of table "forum_G[fid]" branch 1/3 -->
-<?php } else { ?>
+<?php if($_G['hiddenexists']) { ?>							
+<div id="hiddenthread"<?php if($thread['hidden']) { ?> class="last"<?php } ?>><a href="javascript:;" onclick="display_blocked_thread()">还有一些帖子被系统自动隐藏，点此展开</a></div>
+<?php } } else { ?>
 </table><!-- end of table "forum_G[fid]" branch 2/3 -->
-<ul id="waterfall" class="ml waterfall cl"><?php if(is_array($_G['forum_threadlist'])) foreach($_G['forum_threadlist'] as $key => $thread) { if(!$thread['forumstick'] && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])) { if($thread['related_group'] == 0 && $thread['closed'] > 1) { $thread[tid]=$thread[closed];?><?php } } $waterfallwidth = $_G[setting][forumpicstyle][thumbwidth] + 24;?><li style="width:<?php echo $waterfallwidth;?>px;">
+<ul id="waterfall" class="ml waterfall cl"><?php if(is_array($_G['forum_threadlist'])) foreach($_G['forum_threadlist'] as $key => $thread) { if($_G['hiddenexists'] && $thread['hidden']) { continue;?><?php } if(!$thread['forumstick'] && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])) { if($thread['related_group'] == 0 && $thread['closed'] > 1) { $thread[tid]=$thread[closed];?><?php } } $waterfallwidth = $_G[setting][forumpicstyle][thumbwidth] + 24;?><li style="width:<?php echo $waterfallwidth;?>px">
 <?php if(!$_GET['archiveid'] && $_G['forum']['ismoderator']) { ?>
 <div style="position:absolute;margin:1px;padding:2px;background:#FFF">
 <?php if($thread['fid'] == $_G['fid']) { if($thread['displayorder'] <= 3 || $_G['adminid'] == 1) { ?>
@@ -1179,7 +1126,7 @@ scrolltimer = null;
 <li><a href="forum.php?mod=forumdisplay&amp;fid=<?php echo $_G['fid'];?>&amp;filter=reply&amp;orderby=views<?php echo $forumdisplayadd['view'];?><?php if($_GET['archiveid']) { ?>&amp;archiveid=<?php echo $_GET['archiveid'];?><?php } ?>">查看</a></li>
 <li><a href="forum.php?mod=forumdisplay&amp;fid=<?php echo $_G['fid'];?>&amp;filter=lastpost&amp;orderby=lastpost<?php echo $forumdisplayadd['lastpost'];?><?php if($_GET['archiveid']) { ?>&amp;archiveid=<?php echo $_GET['archiveid'];?><?php } ?>">最后发表</a></li>
 <li><a href="forum.php?mod=forumdisplay&amp;fid=<?php echo $_G['fid'];?>&amp;filter=heat&amp;orderby=heats<?php echo $forumdisplayadd['heat'];?><?php if($_GET['archiveid']) { ?>&amp;archiveid=<?php echo $_GET['archiveid'];?><?php } ?>">热门</a></li>
-<ul>
+</ul>
 </div>
 <?php } } if($multipage && $filter != 'hot') { if(!($_G['forum']['picstyle'] && !$_G['cookie']['forumdefstyle'])) { ?>
 <a class="bm_h" href="javascript:;" rel="<?php echo $multipage_more;?>" curpage="<?php echo $page;?>" id="autopbn" totalpage="<?php echo $maxpage;?>" picstyle="<?php echo $_G['forum']['picstyle'];?>" forumdefstyle="<?php echo $_G['cookie']['forumdefstyle'];?>">下一页 &raquo;</a>

@@ -1,9 +1,9 @@
 <?php
 //Discuz! cache file, DO NOT modify me!
-//Identify: bbc4178d4488e1e6e51c2043cf264492
+//Identify: d8f69da03b85f04e8b932d9895b7eb01
 
 $domain = array (
-  'defaultindex' => 'http://localhost/upload/portal.php?mod=list&catid=10',
+  'defaultindex' => 'portal.php',
   'holddomain' => 'www|*blog*|*space*|*bbs*',
   'list' => 
   array (
@@ -12,9 +12,10 @@ $domain = array (
   array (
     'portal' => '',
     'forum' => '',
+    'mobile' => '',
+    'default' => '',
     'group' => '',
     'home' => '',
-    'default' => '',
   ),
   'root' => 
   array (

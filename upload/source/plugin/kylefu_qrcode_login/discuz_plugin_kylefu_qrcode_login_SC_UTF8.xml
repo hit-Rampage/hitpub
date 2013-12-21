@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X3.1]]></item>
+	<item id="Time"><![CDATA[2013-12-03 10:34]]></item>
+	<item id="From"><![CDATA[KyleFu (http://discuz.kylefu.com/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[微信扫一扫登陆]]></item>
+			<item id="identifier"><![CDATA[kylefu_qrcode_login]]></item>
+			<item id="description"><![CDATA[使用微信扫一扫登陆论坛]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[kylefu_qrcode_login/]]></item>
+			<item id="copyright"><![CDATA[KyleFu]]></item>
+			<item id="version"><![CDATA[1.0]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[qrcode]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[user]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[用户管理]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2,X2.5,X3,X3.1]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[图标形式]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[icon_form]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[1=图标
+2=文字]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[图标地址]]></item>
+				<item id="description"><![CDATA[./source/plugin/kylefu_qrcode_login/img/qrcode.png]]></item>
+				<item id="variable"><![CDATA[icon_url]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[./source/plugin/kylefu_qrcode_login/img/qrcode.png]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[显示文字]]></item>
+				<item id="description"><![CDATA[扫一扫登陆]]></item>
+				<item id="variable"><![CDATA[display_text]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[扫一扫登陆]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[二维码位置]]></item>
+				<item id="description"><![CDATA[选择位置显示按钮，可拖动多选，也可以按CTRL多选！]]></item>
+				<item id="variable"><![CDATA[qrcode_place]]></item>
+				<item id="type"><![CDATA[selects]]></item>
+				<item id="extra"><![CDATA[1=1.全局顶部
+2=2.顶部导航左边
+3=3.顶部导航右边
+4=4.主导航栏内嵌
+5=5.主导航栏下面
+6=6.底部右侧导航
+7=7.登陆后用户名右侧
+8=8.登陆后“退出”按钮旁边
+9=9.登陆前论坛Logo旁边
+10=10.整站底部左下角漂浮
+11=11.论坛底部右下角漂浮
+12=12.论坛底部中间漂浮
+13=13.论坛首页搜索下方导航栏旁边
+14=14.论坛首页“我的帖子”按钮旁边]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[2]]></item>
+					<item id="1"><![CDATA[7]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="user_tips"><![CDATA[用户管理]]></item>
+				<item id="user_list"><![CDATA[用户列表]]></item>
+				<item id="nick_name"><![CDATA[微信昵称]]></item>
+				<item id="user_name"><![CDATA[微信用户名]]></item>
+				<item id="gender"><![CDATA[性别]]></item>
+				<item id="gender_1"><![CDATA[男]]></item>
+				<item id="gender_2"><![CDATA[女]]></item>
+				<item id="gender_0"><![CDATA[未知]]></item>
+				<item id="username"><![CDATA[论坛用户名]]></item>
+				<item id="create_time"><![CDATA[创建时间]]></item>
+				<item id="confirm_delete"><![CDATA[确定删除?]]></item>
+				<item id="operation"><![CDATA[操作]]></item>
+				<item id="no_exists"><![CDATA[不存在]]></item>
+				<item id="delete"><![CDATA[删除]]></item>
+				<item id="success"><![CDATA[成功]]></item>
+				<item id="display_text"><![CDATA[扫一扫登陆]]></item>
+				<item id="icon_url"><![CDATA[./source/plugin/kylefu_qrcode_login/img/qrcode.png]]></item>
+				<item id="bind"><![CDATA[绑定微信账号]]></item>
+				<item id="username_empty"><![CDATA[请输入用户名]]></item>
+				<item id="password_empty"><![CDATA[请输入密码]]></item>
+				<item id="no_user"><![CDATA[没有找到用户]]></item>
+				<item id="yes_bind"><![CDATA[该账户已绑定微信]]></item>
+				<item id="yes_wechat"><![CDATA[您的微信账号已绑定其他用户了]]></item>
+				<item id="scan"><![CDATA[成功扫描，请在手机点击确认以登录]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+	</item>
+</root>
